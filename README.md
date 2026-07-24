@@ -10,7 +10,7 @@ https://github.com/ILCG-wyp/DRGNet
 ---
 
 
-## 🚀 Installation
+🚀 Installation
 
 We recommend using a conda environment.
 
