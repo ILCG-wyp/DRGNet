@@ -9,6 +9,7 @@ https://github.com/ILCG-wyp/DRGNet
 
 ---
 
+
 ## 🚀 Installation
 
 We recommend using a conda environment.
@@ -52,7 +53,7 @@ Runtime and memory may vary slightly across different devices.
 DRG-Net uses publicly available datasets, including 3DMatch, 3DLoMatch, and KITTI. No new raw dataset is generated in this work. The rotated benchmarks are generated from the original test sets following the rotation protocols described in the paper.
 
 📍 3.1 3DMatch / 3DLoMatch
-Please download 3DMatch from the official dataset page or prepare the processed 3DMatch data following the standard setting used in GeoTransformer / PARE-Net-style evaluation.
+Please download 3DMatch from the official dataset page (http://3dmatch.cs.princeton.edu/) or prepare the processed 3DMatch data following the standard setting used in GeoTransformer / PARE-Net-style evaluation.
 
 Expected directory structure:
 
@@ -83,7 +84,7 @@ _C.data.dataset_root = "/your/path/to/3DMatch"
 3DLoMatch uses the same processed 3DMatch data and a different benchmark split during evaluation.
 
 📍 3.2 KITTI
-Please download KITTI from the official dataset page and organize the processed data as follows:
+Please download KITTI from the official dataset page (http://www.cvlibs.net/datasets/kitti/eval_odometry.php) and organize the processed data as follows:
 
 text
 data/KITTI/
@@ -100,6 +101,7 @@ Please modify the KITTI dataset path in the corresponding configuration file:
 
 python
 _C.data.dataset_root = "/your/path/to/KITTI"
+
 📍 3.3 Rotated Benchmarks
 The rotated variants are generated from the original test pairs. In the full SO(3) protocol, rotations are applied to point clouds and the ground-truth transformations are updated accordingly. Normals are rotated using the same rotation matrices to keep the PPF-based geometric encoding consistent.
 
@@ -117,6 +119,7 @@ python test.py --benchmark 3DLoMatch --rotated --snapshot xxx.pth.tar
 python eval.py --benchmark 3DLoMatch
 
 🏋️ Training
+
 🎯 4.1 Train on 3DMatch
 bash
 CUDA_VISIBLE_DEVICES=0 python trainval.py
@@ -125,6 +128,7 @@ If you use the experiment folder structure, run:
 bash
 cd experiments/3DMatch
 CUDA_VISIBLE_DEVICES=0 python trainval.py
+
 🎯 4.2 Train on KITTI
 bash
 cd experiments/KITTI
@@ -169,6 +173,7 @@ If your KITTI script does not use the --benchmark argument, please run:
 bash
 python test.py --snapshot xxx.pth.tar
 python eval.py
+
 📊 Expected Logs and Results
 Expected logs are provided in:
 
@@ -188,6 +193,7 @@ results/expected/
 ├── table_topk.csv
 ├── table_normal_robustness.csv
 └── table_efficiency.csv
+
 📌 Notes on Checkpoints
 This repository does not host pretrained checkpoints. To evaluate DRG-Net, please train the model following the training instructions above and specify the generated checkpoint using the --snapshot argument.
 
@@ -201,3 +207,4 @@ This project is developed based on the point cloud registration pipeline of PARE
 
 📄 License
 This repository is released for academic research. Please check the LICENSE file for details.
+
