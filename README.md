@@ -270,19 +270,6 @@ results/expected/
 └── table_efficiency.csv
 ```
 
----
-
-## 📌 Notes on Checkpoints
-
-This repository does not host pretrained checkpoints. To evaluate DRG-Net, please train the model following the training instructions above and specify the generated checkpoint using the `--snapshot` argument.
-
-Example:
-
-```bash
-python test.py --benchmark 3DMatch --snapshot output/3DMatch/features/snapshots/epoch-xxx.pth.tar
-```
-
----
 
 ## 🙏 Acknowledgements
 
