@@ -135,7 +135,7 @@ _C.data.dataset_root = "/your/path/to/KITTI"
 
 ### Rotated Benchmarks
 
-The rotated variants are generated from the original test pairs. In the full SO(3) protocol, rotations are applied to point clouds and the ground-truth transformations are updated accordingly. Normals are rotated using the same rotation matrices to keep the PPF-based geometric encoding consistent.
+The rotated variants are generated from the original test pairs. In the full SO(3) protocol, rotations are applied to point clouds and the ground-truth transformations are updated accordingly. After applying the rotations, normals are re-estimated separately from the rotated source and target point clouds before constructing the PPF-based geometric features. The same normal-estimation neighborhood parameters and normal-orientation rule are used in the original and rotated settings.
 
 For evaluation, the rotated benchmark can be enabled by the `--rotated` flag.
 
